@@ -8,11 +8,26 @@ export function pawnPromt(
   board: any[],
   isWhite: boolean
 ): number[] {
-  if (isWhite == false) {
+  console.log(isWhite);
+  if (isWhite == false && board[coordinatesOnIndex(x, y + 1)] == undefined) {
     board[coordinatesOnIndex(x, y + 1)] = "promt";
-  } else {
-    board[coordinatesOnIndex(x, y - 1)] = "promt";
+    if (y == 1) {
+      board[coordinatesOnIndex(x, y + 2)] = "promt";
+    }
+    if (
+      board[coordinatesOnIndex(x + 1, y + 1)] != undefined ||
+      board[coordinatesOnIndex(x - 1, y + 1)] != undefined
+    ) {
+      
+    }
   }
+  if (isWhite && board[coordinatesOnIndex(x, y - 1)] == undefined) {
+    board[coordinatesOnIndex(x, y - 1)] = "promt";
+    if (y == 6) {
+      board[coordinatesOnIndex(x, y - 2)] = "promt";
+    }
+  }
+
   return board;
 }
 export const powsEat = (x: number, y: number) => {};
